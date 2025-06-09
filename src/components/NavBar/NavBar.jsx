@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
 import styles from './Nav.module.css'
+import RegistrationForm from "../Form/RegistrationForm"
 
 export default function NavBar() {
     return (
@@ -18,12 +19,12 @@ export default function NavBar() {
                     <Link to='/activities'>Activities</Link>
                 </li>
                 <li>
-                    <Link>
+                    <Link to='/register'>
                         <button>Register</button>
                     </Link>
                 </li>
                 <li>
-                    <Link>
+                    <Link to='/signin'>
                     <button>Sign In</button>
                     </Link>
                 </li>
