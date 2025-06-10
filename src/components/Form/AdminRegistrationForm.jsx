@@ -7,7 +7,10 @@ export default function AdminRegistrationForm() {
         firstName: "",
         lastName: "",
         email: "",
-        password: ""
+        password: "",
+        mobile: "",
+        gender: "",
+        DOB: ""
     });
 
     const [message, setMessage] = useState("");
@@ -37,7 +40,7 @@ export default function AdminRegistrationForm() {
             const response = await axios.post("http://localhost:3000/api/member/admin-register", formData);
             setMessage(response.data.msg)
           } catch(err) {
-            console.errors("Unable to register admin", err)
+            console.error("Unable to register admin", err)
             setMessage("Admin registration failed")
           }
     }
@@ -48,18 +51,22 @@ export default function AdminRegistrationForm() {
                 <div>
                     <label>First Name</label>
                     <input type="text" name="firstName" value={formData.firstName} onChange={handleChange}></input>
+                    {errors.firstName}
                 </div>
                 <div>
                     <label>Last  Name</label>
-                    <input type="text" name="firstName" value={formData.lastName} onChange={handleChange}></input>
+                    <input type="text" name="lastName" value={formData.lastName} onChange={handleChange}></input>
+                    {errors.lastName}
                 </div>
                 <div>
                     <label>Email</label>
-                    <input type="text" name="firstName" value={formData.email} onChange={handleChange}></input>
+                    <input type="text" name="email" value={formData.email} onChange={handleChange}></input>
+                    {errors.email}
                 </div>
                 <div>
                     <label>Password</label>
-                    <input type="text" name="firstName" value={formData.password} onChange={handleChange}></input>
+                    <input type="text" name="password" value={formData.password} onChange={handleChange}></input>
+                    {errors.password}
                 </div>
                 <button type="submit">Register Admin</button>
             
