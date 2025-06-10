@@ -6,8 +6,9 @@ import EventPage from './Pages/EventPage'
 import ActivityPage from './Pages/ActivityPage'
 import NotFoundPage from './Pages/NotFoundPage'
 import NavBar from './components/NavBar/NavBar'
-
 import RegistrationForm from './components/Form/RegistrationForm'
+import SignInForm from './components/Form/SignInForm'
+import AdminRegistrationForm from './components/Form/AdminRegistrationForm'
 
 
 
@@ -23,7 +24,8 @@ function App() {
       <Route path="/events" element={<EventPage />}/>
       <Route path="/activities" element={<ActivityPage />}/>
       <Route path="/register" element={<RegistrationForm />}/>
-      {/* <Route path="/signin" element={<LoginForm />}/> */}
+      <Route path="/signin" element={<SignInForm />}/>
+      <Route path="/admin-register" element={<AdminRegistrationForm />} />
       <Route path="*" element={<NotFoundPage />}/>
 
     </Routes>

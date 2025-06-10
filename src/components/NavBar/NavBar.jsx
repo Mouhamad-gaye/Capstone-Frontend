@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 import styles from './Nav.module.css'
-import RegistrationForm from "../Form/RegistrationForm"
+
 
 export default function NavBar() {
     return (
