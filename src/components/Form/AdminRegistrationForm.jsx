@@ -28,11 +28,22 @@ export default function AdminRegistrationForm() {
 
     async function handleSubmit(e) {
         e.preventDefault();
-        
+        const formErrors = validateForm();
+        if(Object.keys(formErrors).length > 0) {
+            setErrors(formErrors)
+            return
+        }
+          try {
+            const response = await axios.post("http://localhost:3000/api/member/admin-register", formData);
+            setMessage(response.data.msg)
+          } catch(err) {
+            console.errors("Unable to register admin", err)
+            setMessage("Admin registration failed")
+          }
     }
     
     return (
-        <form>
+        <form onSubmit={handleSubmit}>
             <h2>Admin Registration</h2>
                 <div>
                     <label>First Name</label>
@@ -50,6 +61,7 @@ export default function AdminRegistrationForm() {
                     <label>Password</label>
                     <input type="text" name="firstName" value={formData.password} onChange={handleChange}></input>
                 </div>
+                <button type="submit">Register Admin</button>
             
         </form>
     )
