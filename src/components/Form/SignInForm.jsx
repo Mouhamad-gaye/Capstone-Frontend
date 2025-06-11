@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+// import Logout from "../utility/Logout";
 
 export default function SignInForm() {
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({
         email: "",
         password: ""
@@ -26,21 +29,27 @@ export default function SignInForm() {
             setErrors(formErrors);
             return;
         }
-
+        
         try {
             const response = await axios.post("http://localhost:3000/api/member/login", formData);
+            console.log(response)
             setMessage(response.data.msg);
-            // localStorage.setItem("token", response.data.token); // Store token for authentication
+            localStorage.setItem("token", response.data.token); // Store token for authentication
+            localStorage.setItem("member", JSON.stringify(response.data.member));
+            
+            navigate("/");
+           
+
         } catch (err) {
             console.error("Error logging in:", err);
             setMessage("Login failed. Please check your credentials.");
         }
     };
 
-    const validateForm = () => {
+    const validateForm = (data) => {
         let newErrors = {};
-        if (!formData.email) newErrors.email = "Email is required";
-        if (!formData.password) newErrors.password = "Password is required";
+        if (!data.email) newErrors.email = "Email is required";
+        if (!data.password) newErrors.password = "Password is required";
         return newErrors;
     };
 
@@ -64,6 +73,7 @@ export default function SignInForm() {
 
             <button type="submit">Sign In</button>
             {message && <p className="message">{message}</p>}
+
         </form>
     );
 };
