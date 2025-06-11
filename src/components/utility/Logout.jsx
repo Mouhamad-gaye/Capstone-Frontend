@@ -1,6 +1,7 @@
-export default function Logout() {
+const Logout = () => {
     localStorage.removeItem("token");
-    localStorage.removeItem("role");
-    window.location.href = "/login"
-    
-}
+    localStorage.removeItem("member");
+    window.location.href = "/signin"; 
+};
+
+export default Logout;

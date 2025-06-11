@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-// import Logout from "../utility/Logout";
+
 
 export default function SignInForm() {
     const navigate = useNavigate();
@@ -32,12 +32,15 @@ export default function SignInForm() {
         
         try {
             const response = await axios.post("http://localhost:3000/api/member/login", formData);
-            console.log(response)
+            console.log("API Response:", response.data)
             setMessage(response.data.msg);
             localStorage.setItem("token", response.data.token); // Store token for authentication
             localStorage.setItem("member", JSON.stringify(response.data.member));
-            
             navigate("/");
+            window.location.reload();
+
+            
+           
            
 
         } catch (err) {

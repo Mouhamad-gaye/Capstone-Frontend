@@ -1,41 +1,50 @@
 .mainNav {
-    background-color: #333;
-    padding: 15px;
+    background-color: #333; /* Dark background */
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .mainNav ul {
     list-style: none;
     display: flex;
-    justify-content: center;
     gap: 20px;
 }
 
-.mainNav li {
-    position: relative;
+.mainNav ul li {
+    padding: 10px;
+    font-size: 18px;
 }
 
-.mainNav a {
+.mainNav ul li a {
     text-decoration: none;
     color: white;
-    font-size: 18px;
-    padding: 10px 15px;
-    transition: color 0.3s ease-in-out;
+    transition: color 0.3s ease;
 }
 
-.mainNav a:hover {
-    color: #f0a500;
+.mainNav ul li a:hover {
+    color: #f4b400; /* Google-style yellow */
 }
 
-.mainNav button {
-    background-color: #f0a500;
-    border: none;
-    padding: 8px 12px;
-    font-size: 16px;
+.nav-button {
+    background-color: #007bff; /* Blue button */
     color: white;
-    border-radius: 5px;
+    padding: 8px 12px;
+    border: none;
     cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s ease;
 }
 
-.mainNav button:hover {
-    background-color: #d48c00;
+.nav-button:hover {
+    background-color: #0056b3; /* Darker blue */
+}
+
+.logout {
+    background-color: #dc3545; /* Red logout button */
+}
+
+.logout:hover {
+    background-color: #a71d2a;
 }
