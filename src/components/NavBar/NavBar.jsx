@@ -9,7 +9,7 @@ export default function NavBar() {
     
     const isAuthenticated = localStorage.getItem("token") !== null;
     const rawData = localStorage.getItem("member");
-    const member = rawData ? JSON.parse(rawData) : null;
+    const member = rawData ? JSON.parse(rawData) : {};
 
     
 

@@ -1,5 +1,6 @@
 import { useState } from "react"
 import axios from "axios"
+import { useNavigate } from "react-router-dom";
 
 
 export default function AdminLoginForm() {
@@ -9,6 +10,7 @@ export default function AdminLoginForm() {
     });
 
     const [message, setMessage] = useState("");
+    const navigate = useNavigate();
 
     function handleChange(e) {
         setFormData({...formData, [e.target.name]: e.target.value});
@@ -22,6 +24,7 @@ export default function AdminLoginForm() {
             localStorage.setItem("token", response.data.token);
             localStorage.setItem("role", response.data.role);
             setMessage(response.data.msg)
+            navigate('/')
             window.location.href = "/"
         } catch (err) {
             console.error("Error logging in", err)
