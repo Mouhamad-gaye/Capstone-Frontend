@@ -53,3 +53,7 @@ CSS Styling: Uses an external stylesheet (Activity.module.css) for layout and st
 #Authentication
 #SignUp/ Login (stores JWT in local storage)
 Protected Routes (Only admins can modify content)
+
+
+
+Backen Link (https://github.com/Mouhamad-gaye/Capstone-Backend.git)
