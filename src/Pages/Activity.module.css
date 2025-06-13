@@ -1,0 +1,39 @@
+.activitiesContainer {
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    padding: 20px;
+    background: #f4f4f4;
+}
+
+/* Video Section */
+.videoContainer {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Gallery Section */
+.galleryGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.galleryGrid img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+/* Activities List */
+.activitiesList ul {
+    list-style: none;
+    padding: 0;
+}
+
+.activitiesList li {
+    background: white;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}

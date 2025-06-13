@@ -26,7 +26,7 @@ export default function NavBar() {
                
                 {isAuthenticated && member.firstName ? (
                     <li>
-                        Welcome, {member.firstName}!
+                        Welcome, {member.firstName}
                         <button className="nav-button logout" onClick={Logout}>Logout</button>
                     </li>
                 ) : null}
