@@ -7,7 +7,7 @@ export default function ActivityPage() {
             <h1>Discover Mouride Activities</h1>
             <p>Explore key aspects of Mouridism, from spiritual teachings to community events.</p>
 
-            {/* Embedded YouTube Videos */}
+           
             <section className={styles.videoSection}>
                 <h2>Teachings of Cheikh Ahmadou Bamba</h2>
                 <div className={styles.videoContainer}>
@@ -16,7 +16,7 @@ export default function ActivityPage() {
                 </div>
             </section>
 
-            {/* Gallery Section */}
+           
             <section className={styles.gallerySection}>
                 <h2>Photo Gallery</h2>
                 <div className={styles.galleryGrid}>
@@ -27,7 +27,7 @@ export default function ActivityPage() {
                 </div>
             </section>
 
-            {/* Activities Section */}
+           
             <section className={styles.activitiesList}>
                 <h2>Key Mouride Activities</h2>
                 <ul>

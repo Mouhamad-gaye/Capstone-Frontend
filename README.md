@@ -13,7 +13,10 @@
 #Css module
 
 #Navigation
+
 #HomePage (The HomePage component is the main landing page for Denver's Mouride Daara website. It presents key content such as a hero section with a carousel, mission statement, activities, and footer information.) 
+
+
 Events(The EventPage component is designed to manage events, allowing users to view, create, update, and delete events. It is built using React and Axios to interact with a backend API.
 
 useState and useEffect hooks to manage event data,
@@ -35,7 +38,16 @@ Provides a form for creating and editing events.
 ) 
 
 
-Announcements, Activities
+Announcements (Same path as Event Page)
+
+Activities(The Activity Page is showcaseing key activities of Mouridism. It provides video content, a photo gallery, and a list of major community activities, offering visitors an interactive way to learn about Mouride traditions.
+Video Section: Embeds YouTube videos about Cheikh Ahmadou Bamba’s teachings and Mouride community events.
+
+Photo Gallery: Displays images representing Mouride activities, such as prayer circles and community gatherings.
+
+Activities List: Highlights key Mouride practices, including spiritual gatherings, educational programs, and pilgrimages.
+
+CSS Styling: Uses an external stylesheet (Activity.module.css) for layout and styling.)
 #Admin Panel (managing annoucements and events)
 
 #Authentication
