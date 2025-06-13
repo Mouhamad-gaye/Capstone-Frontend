@@ -1,50 +1,58 @@
 .mainNav {
-    background-color: #333; /* Dark background */
-    padding: 10px 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background-color: #004d00; /* Dark Green */
+    padding: 15px 0;
+    text-align: center;
 }
 
+/* Navigation List */
 .mainNav ul {
     list-style: none;
     display: flex;
+    justify-content: center;
     gap: 20px;
+    padding: 0;
 }
 
-.mainNav ul li {
-    padding: 10px;
-    font-size: 18px;
+.mainNav li {
+    display: inline-block;
 }
 
-.mainNav ul li a {
+/* Navigation Links */
+.mainNav a {
+    color: #ffbf00; /* Bright Yellow */
     text-decoration: none;
-    color: white;
-    transition: color 0.3s ease;
+    font-size: 18px;
+    font-weight: bold;
+    transition: color 0.3s;
 }
 
-.mainNav ul li a:hover {
-    color: #f4b400; /* Google-style yellow */
+.mainNav a:hover {
+    color: #ffffff; /* White when hovered */
 }
 
-.nav-button {
-    background-color: #007bff; /* Blue button */
-    color: white;
-    padding: 8px 12px;
+/* Buttons */
+button {
+    background-color: #ffbf00; /* Bright Yellow */
+    color: #004d00; /* Dark Green */
     border: none;
-    cursor: pointer;
+    padding: 10px 15px;
     font-size: 16px;
-    transition: background 0.3s ease;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
 }
 
-.nav-button:hover {
-    background-color: #0056b3; /* Darker blue */
+button:hover {
+    background-color: #cc9900; /* Slightly darker yellow */
 }
 
-.logout {
-    background-color: #dc3545; /* Red logout button */
+/* Logout Button */
+.nav-button.logout {
+    background-color: #cc0000; /* Red for logout */
+    color: white;
 }
 
-.logout:hover {
-    background-color: #a71d2a;
+.nav-button.logout:hover {
+    background-color: #990000; /* Darker red */
 }

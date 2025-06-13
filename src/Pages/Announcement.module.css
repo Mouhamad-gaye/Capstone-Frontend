@@ -1,0 +1,93 @@
+/* Remove Default Margins & Padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Announcements Container */
+.announcementsContainer {
+    width: 100%;
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Header Styling */
+h2 {
+    text-align: center;
+    color: #004d00; /* Dark Green */
+    margin-bottom: 20px;
+}
+
+/* Announcements List */
+ul {
+    list-style: none;
+}
+
+li {
+    background: white;
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Announcement Title */
+li strong {
+    font-size: 18px;
+    color: #004d00;
+}
+
+/* Announcement Content */
+li p {
+    font-size: 16px;
+    color: #333;
+    margin-top: 5px;
+}
+
+/* Admin Buttons */
+button {
+    background-color: #ffbf00; /* Bright Yellow */
+    color: #004d00; /* Dark Green */
+    border: none;
+    padding: 10px 12px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 5px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #cc9900; /* Slightly darker yellow */
+}
+
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+textarea {
+    min-height: 100px;
+}
+
+/* Submit Button */
+form button {
+    align-self: center;
+}

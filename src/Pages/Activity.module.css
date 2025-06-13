@@ -3,16 +3,17 @@
     text-align: center;
     padding: 20px;
     background: #f4f4f4;
+   
 }
 
-/* Video Section */
+
 .videoContainer {
     display: flex;
     justify-content: center;
     gap: 20px;
 }
 
-/* Gallery Section */
+
 .galleryGrid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -24,7 +25,7 @@
     border-radius: 8px;
 }
 
-/* Activities List */
+
 .activitiesList ul {
     list-style: none;
     padding: 0;
