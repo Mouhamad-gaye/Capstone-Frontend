@@ -4,7 +4,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styles from "./HomePage.module.css";
-import art from '../assets/artwork.jpg'
+import art from '../assets/artEditedjpg.jpg'
 import download from '../assets/download.jpeg'
 import flyer from '../assets/Untitled.png'
 import touba from '../assets/touba.jpg'
@@ -29,6 +29,10 @@ export default function HomePage() {
                     <div><img src={art} alt="Prayer Gathering" /></div>
                     <div><img src={download} alt="Prayer Gathering" /></div>
                 </Slider>
+                <br/>
+                <br/>
+                <br/>
+
                 <h1>Preserving the Teachings of Cheikh Ahmadou Bamba</h1>
                 <p>Welcome to Denver's Mouride Daara, where we uphold the values of faith, service, and education.</p>
                 <button className={styles.ctaButton}>Learn More</button>

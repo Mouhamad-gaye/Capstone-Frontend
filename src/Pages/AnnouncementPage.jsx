@@ -14,10 +14,10 @@ export default function AnnouncementsPage() {
                 const response = await axios.get("http://localhost:3000/api/comm");
                 setAnnouncements(response.data);
                 
-                // Retrieve authentication token
+               
                 let token = localStorage.getItem("token");
                 
-                // Fetch member role
+                
                 const memberResponse = await axios.get("http://localhost:3000/api/member", {
                     headers: { Authorization: token }
                 });

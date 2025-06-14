@@ -9,7 +9,7 @@ import styles from './EventPage.module.css'
 export default function EventPage() {
     const [events, setEvents] = useState([]);
     const [memberRole, setMemberRole] = useState(null);
-    const [formData, setFormData] = useState({ title: "", date: new Date(), location: "" })
+    const [formData, setFormData] = useState({ title: "", date: new Date(), location: "", description: "" })
     const [editingEvent, setEditingEvent] = useState(null)
 
 
@@ -20,7 +20,7 @@ export default function EventPage() {
                 setEvents(response.data);
                 let token = localStorage.getItem("token")
                 console.log(token)
-                // Handle authorization failure
+                
                 try {
                     const member = await axios.get("http://localhost:3000/api/member", {
                         headers: { Authorization: token }
@@ -28,7 +28,7 @@ export default function EventPage() {
                     setMemberRole(member.data.role);
                 } catch (authErr) {
                     console.error("Unauthorized access to member API:", authErr.message);
-                    setMemberRole(null); // Prevent crashes if unauthorized
+                    setMemberRole(null); 
                 }
 
             } catch (err) {
@@ -62,35 +62,60 @@ export default function EventPage() {
     async function updateEvent(eventId, formData) {
         try {
             let token = localStorage.getItem("token");
+            if (!token) {
+                console.error("Error: Missing authentication token!");
+                return;
+            }
+    
             if (!eventId) {
                 console.error("Error: Missing event ID for update!");
                 return;
             }
+    
             const response = await axios.put(`http://localhost:3000/api/event/${eventId}`, formData, {
                 headers: { Authorization: token }
             });
+    
             console.log("Event updated successfully:", response.data);
             return response.data;
         } catch (error) {
             console.error("Error updating event:", error.message);
         }
-    };
+    }
 
     async function handleSubmit(e) {
         e.preventDefault();
         if (editingEvent) {
-            await updateEvent(editingEvent.id, formData);
+            await updateEvent(editingEvent._id, formData);
         } else {
             await createEvent(formData);
         }
         setEditingEvent(null);
-        setFormData({ title: "", date: "", location: "" });
-    }
+        setFormData({ title: "", date: "", location: "", description: ""});
+    };
 
 
     function handleEdit(eventId) {
-        setEditingEvent(eventId);
-        setFormData(eventId);
+        console.log("Editing Event ID Received:", eventId);
+
+        if (!eventId) {
+            console.error("Error: Missing event ID for update!");
+            return;
+        }
+
+        const selectedEvent = events.find(event => event._id === eventId); // ✅ Find full event object
+        if (!selectedEvent) {
+            console.error("Error: Event not found!");
+            return;
+        }
+    
+        setEditingEvent(selectedEvent);
+        setFormData({
+            title: selectedEvent.title || "",
+            date: selectedEvent.date || "",
+            location: selectedEvent.location || "",
+            description: selectedEvent.description || ""
+        });
     };
 
     async function handleDelete(eventId) {
@@ -126,9 +151,10 @@ export default function EventPage() {
                     <li key={event.id} className={styles.eventItem}>
                         <strong>{event.title}</strong>
                         <p>{event.date} @ {event.location}</p>
+                        <p>{event.description}</p>
                         {memberRole === "admin" && (
                             <>
-                                <button onClick={() => handleEdit(event.id)}>Edit</button>
+                                <button onClick={() => handleEdit(event._id)}>Edit</button>
                                 <button onClick={() => handleDelete(event._id)}>Delete</button>
                             </>
                         )}
@@ -140,8 +166,9 @@ export default function EventPage() {
                 <form onSubmit={handleSubmit} className={styles.eventForm}>
                     <h3>{editingEvent ? "Edit Event" : "Create Event"}</h3>
                     <input type="text" name="title" placeholder="Title" value={formData.title} onChange={handleChange} required />
-                    <input type="date" name="date" value={(formData.date)} onChange={handleChange} required />
+                    <input type="date" name="date" value={formData.date} onChange={handleChange} required />
                     <input type="text" name="location" placeholder="Location" value={formData.location} onChange={handleChange} required />
+                    <input type="text" name="description" placeholder="Description" value={formData.description} onChange={handleChange} required />
                     <button type="submit">{editingEvent ? "Update" : "Create"}</button>
                 </form>
             )}
